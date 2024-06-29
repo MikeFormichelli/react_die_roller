@@ -11,3 +11,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header{
+  background-color: beige;
+  border: 2px solid black;
+  height: 15vh;
+  width: 50vw;
+  margin-top: 1rem; 
+  margin-left: 25vw;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.main-body{
+  background-color: cornflowerblue;
+  width: 51vw;
+  margin-left: 25vw;
+  border: 2px solid black;
+}
+
+.grid-container{
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-content: center;
+}
+
+.die{
+  display: flex;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 5px;
+  margin: auto;
+}
+
+.result-field{
+  width: 25px;
+  margin-left: 20vw;
+}
+
+.die-display-field{
+  font-size: 30px;
+  width: 10vw;
+  text-align: center;
+}
+
+.lower-body{
+  background-color: green;
+}
+
+.fail-roll{
+  background-color: red;
+}
