@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Header } from "./Header";
+import { RollerBody } from "./RollerBody";
+import { ResultPane } from "./ResultPane";
 
 function App() {
   const [number, setNumber] = useState(1);
@@ -43,69 +46,4 @@ function App() {
   );
 }
 
-function Header() {
-  return (
-    <div className="header">
-      <h1>RPG Die Roller!</h1>
-    </div>
-  );
-}
-
-function RollerBody({ dieType, onSetDie, number, onSetNumber, onSetResult }) {
-  return (
-    <div className="main-body">
-      <div className="grid-container">
-        <Die
-          number={number}
-          onSetNumber={onSetNumber}
-          dieType={dieType}
-          onSetDieType={onSetDie}
-          onSetResult={onSetResult}>
-          D4
-        </Die>
-        <button onClick={onSetResult}>Roll!</button>
-      </div>
-    </div>
-  );
-}
-
-function Die({ number, onSetNumber, onSetDieType, dieType }) {
-  const dieTypes = ["d4", "d6", "d8", "d10", "d12", "d20"];
-  return (
-    <div className="die">
-      <select
-        value={number}
-        onChange={(e) => onSetNumber(Number(e.target.value))}>
-        {Array.from({ length: 100 }, (_, i) => i + 1).map((num) => (
-          <option value={num} key={num}>
-            {num}
-          </option>
-        ))}
-      </select>
-      <span>D</span>
-      <select value={dieType} onChange={(e) => onSetDieType(e.target.value)}>
-        {dieTypes.map((type) => (
-          <option value={type} key={type}>
-            {type}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
-
-function ResultPane({ result }) {
-  return (
-    <div className={`main-body ${result === 1 ? 'fail-roll': 'lower-body'}`}>
-      <div className="result-field">
-        <input
-          className="die-display-field"
-          disabled
-          type="text"
-          id="result"
-          value={result}></input>
-      </div>
-    </div>
-  );
-}
 export default App;
